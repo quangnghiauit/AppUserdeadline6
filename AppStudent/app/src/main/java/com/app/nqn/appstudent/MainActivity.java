@@ -93,6 +93,7 @@ package com.app.nqn.appstudent;
 
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
@@ -130,6 +131,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText editTextPhone;
     Button buttonChange;
     Button buttonSave;
+    Button buttonCancel;
     RadioButton radioButtonFemale, radioButtonMale;
 
     ImageView img;
@@ -151,6 +153,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         buttonChange = findViewById(R.id.btn_change);
         buttonSave = findViewById(R.id.btn_save);
+        buttonCancel= findViewById(R.id.btn_cancel);
+
         radioButtonMale = findViewById(R.id.rdbMale);
         radioButtonFemale = findViewById(R.id.rdbFemale);
         img = (ImageView) findViewById(R.id.iv_logo);
@@ -221,6 +225,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+
     String SaveImage(Bitmap bitmapImage) {
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
         // path to /data/data/yourapp/app_data/imageDir
@@ -269,6 +274,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             this.startActivityForResult(intent, REQUEST_ID_IMAGE_CAPTURE);
+        }
+        if(v.getId()==R.id.btn_cancel) {
+            finish();
+            System.exit(0);
         }
     }
 
